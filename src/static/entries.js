@@ -1,8 +1,8 @@
 export const ENTRIES1 = [
     {
-        title: 'Beautiful and dramatic Antelope Canyon',
+        title: 'REPLY',
         subtitle: 'Lorem ipsum dolor sit amet et nuncat mergitur',
-        illustration: 'https://i.imgur.com/UYiroysl.jpg'
+        illustration: 'https://re-ply.r-e.kr/firestore/moon.gif'
     },
     {
         title: 'Earlier this morning, NYC',
@@ -33,9 +33,9 @@ export const ENTRIES1 = [
 
 export const ENTRIES2 = [
     {
-        title: 'Favourites landscapes 1',
+        title: 'landscapes 1',
         subtitle: 'Lorem ipsum dolor sit amet',
-        illustration: 'https://i.imgur.com/SsJmZ9jl.jpg'
+        illustration: 'https://re-ply.r-e.kr/firestore/reply.gif'
     },
     {
         title: 'Favourites landscapes 2',

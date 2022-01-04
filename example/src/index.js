@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { Platform, View, ScrollView, Text, StatusBar, SafeAreaView } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
-import { sliderWidth, itemWidth } from 'example/src/styles/SliderEntry.style';
-import SliderEntry from 'example/src/components/SliderEntry';
-import styles, { colors } from 'example/src/styles/index.style';
-import { ENTRIES1, ENTRIES2 } from 'example/src/static/entries';
-import { scrollInterpolators, animatedStyles } from 'example/src/utils/animations';
+import { sliderWidth, itemWidth } from './styles/SliderEntry.style';
+import SliderEntry from './components/SliderEntry';
+import styles, { colors } from './styles/index.style';
+import { ENTRIES1, ENTRIES2 } from './static/entries';
+import { scrollInterpolators, animatedStyles } from './utils/animations';
 
 const IS_ANDROID = Platform.OS === 'android';
 const SLIDER_1_FIRST_ITEM = 1;
@@ -48,7 +48,7 @@ export default class example extends Component {
 
         return (
             <View style={styles.exampleContainer}>
-                <Text style={styles.title}>{`Example ${number}`}</Text>
+                <Text style={styles.title}>{`Example1211 ${number}`}</Text>
                 <Text style={styles.subtitle}>{title}</Text>
                 <Carousel
                   ref={c => this._slider1Ref = c}
@@ -59,15 +59,15 @@ export default class example extends Component {
                   hasParallaxImages={true}
                   firstItem={SLIDER_1_FIRST_ITEM}
                   inactiveSlideScale={0.94}
-                  inactiveSlideOpacity={0.7}
+                  inactiveSlideOpacity={0.1}
                   // inactiveSlideShift={20}
                   containerCustomStyle={styles.slider}
                   contentContainerCustomStyle={styles.sliderContentContainer}
-                  loop={true}
-                  loopClonesPerSide={2}
-                  autoplay={true}
-                  autoplayDelay={500}
-                  autoplayInterval={3000}
+                //   loop={false}
+                //   loopClonesPerSide={2}
+                //   autoplay={false}
+                //   autoplayDelay={500}
+                //   autoplayInterval={3000}
                   onSnapToItem={(index) => this.setState({ slider1ActiveSlide: index }) }
                 />
                 <Pagination
@@ -138,7 +138,7 @@ export default class example extends Component {
         // Do not render examples on Android; because of the zIndex bug, they won't work as is
         return !IS_ANDROID ? (
             <View style={[styles.exampleContainer, isEven ? styles.exampleContainerDark : styles.exampleContainerLight]}>
-                <Text style={[styles.title, isEven ? {} : styles.titleDark]}>{`Example ${number}`}</Text>
+                <Text style={[styles.title, isEven ? {} : styles.titleDark]}>{`IOS Example ${number}`}</Text>
                 <Text style={[styles.subtitle, isEven ? {} : styles.titleDark]}>{title}</Text>
                 <Carousel
                   data={isEven ? ENTRIES2 : ENTRIES1}
@@ -167,12 +167,12 @@ export default class example extends Component {
     }
 
     render () {
-        const example1 = this.mainExample(1, 'Default layout | Loop | Autoplay | Parallax | Scale | Opacity | Pagination with tappable dots');
+        const example1 = this.mainExample(1, 'Default layout | Loop | Autoplay | Parallax | Scale | Opacity | Pagination');
         const example2 = this.momentumExample(2, 'Momentum | Left-aligned | Active animation');
         const example3 = this.layoutExample(3, '"Stack of cards" layout | Loop', 'stack');
         const example4 = this.layoutExample(4, '"Tinder-like" layout | Loop', 'tinder');
-        const example5 = this.customExample(5, 'Custom animation 1', 1, this._renderItem);
-        const example6 = this.customExample(6, 'Custom animation 2', 2, this._renderLightItem);
+        const example5 = this.customExample(5, 'IOS Custom animation 1', 1, this._renderItem);
+        const example6 = this.customExample(6, 'IOS Custom animation 2', 2, this._renderLightItem);
         const example7 = this.customExample(7, 'Custom animation 3', 3, this._renderDarkItem);
         const example8 = this.customExample(8, 'Custom animation 4', 4, this._renderLightItem);
 
@@ -190,7 +190,7 @@ export default class example extends Component {
                       scrollEventThrottle={200}
                       directionalLockEnabled={true}
                     >
-                        { example1 }
+                        {/* { example1 } */}
                         { example2 }
                         { example3 }
                         { example4 }

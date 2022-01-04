@@ -15,14 +15,16 @@ function animatedStyles1 (index, animatedValue, carouselProps) {
     return {
         zIndex: carouselProps.data.length - index,
         opacity: animatedValue.interpolate({
-            inputRange: [2, 3],
-            outputRange: [1, 0],
+            // inputRange: [2, 3],
+            // outputRange: [1, 0],
+            inputRange: [-1, 0, 1, 2, 3],
+            outputRange: [1, 1, 0.5, 0.3, 0.1],
             extrapolate: 'clamp'
         }),
         transform: [{
             rotate: animatedValue.interpolate({
                 inputRange: [-1, 0, 1, 2, 3],
-                outputRange: ['-25deg', '0deg', '-3deg', '1.8deg', '0deg'],
+                outputRange: ['-25deg', '0deg', '3deg', '3.2deg', '4deg'],
                 extrapolate: 'clamp'
             })
         }, {
@@ -32,7 +34,7 @@ function animatedStyles1 (index, animatedValue, carouselProps) {
                     -sizeRef * 0.5,
                     0,
                     -sizeRef, // centered
-                    -sizeRef * 2, // centered
+                    -sizeRef * 1.97, // centered
                     -sizeRef * 3 // centered
                 ],
                 extrapolate: 'clamp'
@@ -101,7 +103,7 @@ function animatedStyles3 (index, animatedValue, carouselProps) {
         zIndex: carouselProps.data.length - index,
         opacity: animatedValue.interpolate({
             inputRange: [-1, 0, 1, 2],
-            outputRange: [1, 1, 0.75, 0.5],
+            outputRange: [1, 0.5, 0.5, 0.25],
             extrapolate: 'clamp'
         }),
         transform: [{
@@ -149,14 +151,14 @@ function animatedStyles4 (index, animatedValue, carouselProps) {
             {
                 rotateX: animatedValue.interpolate({
                     inputRange: [-1, 0, 1],
-                    outputRange: ['30deg', '0deg', '30deg'],
+                    outputRange: ['15deg', '0deg', '15deg'],
                     extrapolate: 'clamp'
                 })
             },
             {
                 rotateY: animatedValue.interpolate({
                     inputRange: [-1, 0, 1],
-                    outputRange: ['-30deg', '0deg', '30deg'],
+                    outputRange: ['-15deg', '0deg', '15deg'],
                     extrapolate: 'clamp'
                 })
             }
