@@ -1,34 +1,34 @@
 export const ENTRIES1 = [
     {
-        title: 'REPLY',
+        title: '1. REPLY',
         subtitle: 'Lorem ipsum dolor sit amet et nuncat mergitur',
         illustration: 'https://re-ply.r-e.kr/firestore/moon.gif'
     },
     {
-        title: 'Earlier this morning, NYC',
+        title: '2. Earlier this morning, NYC',
         subtitle: 'Lorem ipsum dolor sit amet',
-        illustration: 'https://i.imgur.com/UPrs1EWl.jpg'
+        illustration: 'https://re-ply.r-e.kr/firestore/moon.gif'
     },
     {
-        title: 'White Pocket Sunset',
+        title: '3. White Pocket Sunset',
         subtitle: 'Lorem ipsum dolor sit amet et nuncat ',
-        illustration: 'https://i.imgur.com/MABUbpDl.jpg'
+        illustration: 'https://re-ply.r-e.kr/firestore/moon.gif'
     },
     {
-        title: 'Acrocorinth, Greece',
+        title: '4. Acrocorinth, Greece',
         subtitle: 'Lorem ipsum dolor sit amet et nuncat mergitur',
-        illustration: 'https://i.imgur.com/KZsmUi2l.jpg'
+        illustration: 'https://re-ply.r-e.kr/firestore/moon.gif'
     },
     {
-        title: 'The lone tree, majestic landscape of New Zealand',
+        title: '5. The lone tree, majestic landscape of New Zealand',
         subtitle: 'Lorem ipsum dolor sit amet',
-        illustration: 'https://i.imgur.com/2nCt3Sbl.jpg'
+        illustration: 'https://re-ply.r-e.kr/firestore/moon.gif'
     },
-    {
-        title: 'Middle Earth, Germany',
-        subtitle: 'Lorem ipsum dolor sit amet',
-        illustration: 'https://i.imgur.com/lceHsT6l.jpg'
-    }
+    // {
+    //     title: 'Middle Earth, Germany',
+    //     subtitle: 'Lorem ipsum dolor sit amet',
+    //     illustration: 'https://i.imgur.com/lceHsT6l.jpg'
+    // }
 ];
 
 export const ENTRIES2 = [
@@ -57,9 +57,9 @@ export const ENTRIES2 = [
         subtitle: 'Lorem ipsum dolor sit amet',
         illustration: 'https://i.imgur.com/pewusMzl.jpg'
     },
-    {
-        title: 'Favourites landscapes 6',
-        subtitle: 'Lorem ipsum dolor sit amet et nuncat',
-        illustration: 'https://i.imgur.com/l49aYS3l.jpg'
-    }
+    // {
+    //     title: 'Favourites landscapes 6',
+    //     subtitle: 'Lorem ipsum dolor sit amet et nuncat',
+    //     illustration: 'https://i.imgur.com/l49aYS3l.jpg'
+    // }
 ];

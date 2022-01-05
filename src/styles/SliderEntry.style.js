@@ -22,6 +22,7 @@ export default StyleSheet.create({
     slideInnerContainer: {
         width: itemWidth,
         height: slideHeight,
+        overflow: 'hidden',
         paddingHorizontal: itemHorizontalMargin,
         paddingBottom: 18 // needed for shadow
     },
@@ -42,17 +43,20 @@ export default StyleSheet.create({
         marginBottom: IS_IOS ? 0 : -1, // Prevent a random Android rendering issue
         backgroundColor: 'white',
         borderTopLeftRadius: entryBorderRadius,
-        borderTopRightRadius: entryBorderRadius
+        borderTopRightRadius: entryBorderRadius,
+
     },
     imageContainerEven: {
-        backgroundColor: colors.black
+        backgroundColor: colors.black,
+
     },
     image: {
         ...StyleSheet.absoluteFillObject,
         resizeMode: 'cover',
         borderRadius: IS_IOS ? entryBorderRadius : 0,
         borderTopLeftRadius: entryBorderRadius,
-        borderTopRightRadius: entryBorderRadius
+        borderTopRightRadius: entryBorderRadius,
+        overflow: 'hidden',
     },
     // image's border radius is buggy on iOS; let's hack it!
     radiusMask: {

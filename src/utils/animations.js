@@ -1,8 +1,11 @@
 import { getInputRangeFromIndexes } from 'react-native-snap-carousel';
 
-// Photo album effect
+const IS_ANDROID = Platform.OS === 'android';
+
+
 function scrollInterpolator1 (index, carouselProps) {
-    const range = [3, 2, 1, 0, -1];
+    
+    const range = IS_ANDROID? [1, 0, -1, -2, -3, -4] : [4, 3, 2, 1, 0, -1];
     const inputRange = getInputRangeFromIndexes(range, index, carouselProps);
     const outputRange = range;
 
@@ -11,31 +14,35 @@ function scrollInterpolator1 (index, carouselProps) {
 function animatedStyles1 (index, animatedValue, carouselProps) {
     const sizeRef = carouselProps.vertical ? carouselProps.itemHeight : carouselProps.itemWidth;
     const translateProp = carouselProps.vertical ? 'translateY' : 'translateX';
-
+    
     return {
-        zIndex: carouselProps.data.length - index,
+        zIndex: IS_ANDROID? null : carouselProps.data.length - index,
         opacity: animatedValue.interpolate({
             // inputRange: [2, 3],
             // outputRange: [1, 0],
-            inputRange: [-1, 0, 1, 2, 3],
-            outputRange: [1, 1, 0.5, 0.3, 0.1],
+            inputRange: IS_ANDROID? [-4, -3, -2, -1, 0, 1] : [-1, 0, 1, 2, 3, 4],
+            outputRange: [0, 1, 0.3, 0.7, 1, 0.3],
             extrapolate: 'clamp'
         }),
-        transform: [{
+        transform: [
+            {
+            perspective: 1000
+        },{
             rotate: animatedValue.interpolate({
-                inputRange: [-1, 0, 1, 2, 3],
-                outputRange: ['-25deg', '0deg', '3deg', '3.2deg', '4deg'],
+                inputRange: IS_ANDROID? [-4, -3, -2, -1, 0, 1] : [-1, 0, 1, 2, 3, 4],
+                outputRange: ['1.4deg', '0deg', '2deg', '3.2deg', '0deg', '4.8deg'],
                 extrapolate: 'clamp'
             })
         }, {
             [translateProp]: animatedValue.interpolate({
-                inputRange: [-1, 0, 1, 2, 3],
+                inputRange: IS_ANDROID? [-4, -3, -2, -1, 0, 1] : [-1, 0, 1, 2, 3, 4],
                 outputRange: [
+                    -sizeRef * 0.3,
                     -sizeRef * 0.5,
-                    0,
-                    -sizeRef, // centered
-                    -sizeRef * 1.97, // centered
-                    -sizeRef * 3 // centered
+                    -sizeRef * 0.7, // centered
+                    -sizeRef * 0.97, // centered
+                    0, // centered
+                    -sizeRef * 0.97 // centered
                 ],
                 extrapolate: 'clamp'
             })
@@ -130,6 +137,7 @@ function scrollInterpolator4 (index, carouselProps) {
     return { inputRange, outputRange };
 }
 function animatedStyles4 (index, animatedValue, carouselProps) {
+    const sizeRef = carouselProps.vertical ? carouselProps.itemHeight : carouselProps.itemWidth;
     return {
         zIndex: carouselProps.data.length - index,
         opacity: animatedValue.interpolate({
@@ -161,6 +169,17 @@ function animatedStyles4 (index, animatedValue, carouselProps) {
                     outputRange: ['-15deg', '0deg', '15deg'],
                     extrapolate: 'clamp'
                 })
+            }, {
+                translateX: animatedValue.interpolate({
+                    inputRange: [-1, 0, 1],
+                    outputRange: [
+                        sizeRef + 30,
+                        0,
+                        // 0,
+                        -sizeRef + 30
+                    ],
+                    extrapolate: 'clamp'
+                })
             }
         ]
     };
@@ -171,12 +190,12 @@ export const scrollInterpolators = {
     scrollInterpolator1,
     scrollInterpolator2,
     scrollInterpolator3,
-    scrollInterpolator4
+    scrollInterpolator4,
 };
 
 export const animatedStyles = {
     animatedStyles1,
     animatedStyles2,
     animatedStyles3,
-    animatedStyles4
+    animatedStyles4,
 };
